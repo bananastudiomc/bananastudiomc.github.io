@@ -3,51 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X光超级工具</title>
+    <title>X光超级工具下载</title>
     <style>
         body {
             background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .container {
-            text-align: center;
+        .header {
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        h1 {
-            font-size: 3em;
-            color: #333;
+        .header h1 {
+            margin: 0;
+            font-size: 1.5em;
         }
-        p {
-            font-size: 1em;
+        .header p {
+            font-size: 0.9em;
             color: #666;
-            margin: 10px 0;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
         }
         .download-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 10px;
+        }
+        .download-btn img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .download-btn a {
             display: inline-block;
-            padding: 15px 30px;
-            font-size: 1.2em;
+            padding: 10px 20px;
+            font-size: 1em;
             color: white;
             background-color: #007bff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            margin-top: 20px;
         }
-        .download-btn:hover {
+        .download-btn a:hover {
             background-color: #0056b3;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #999;
+        }
+        .back-btn {
+            margin-right: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>X光超级工具</h1>
-        <p>这是一款支持我的世界基岩版的X光超级装备模组，你可以使用X光锭、超级锭、究极锭和超级X光锭来制作更多强劲的装备和工具。</p>
-        <a href="https://www.123684.com/s/CLI9vd-j38HA" class="download-btn">开始下载 V1.8.9</a>
+    <div class="header">
+        <a href="https://bananastudiomc.github.io/bananastudiohome.html" class="back-btn">返回主页</a>
+        <h1>X光超级工具下载</h1>
+    </div>
+    <div class="content">
+        <div class="download-btn">
+            <img src="xraysupertoolsmodicon.png" alt="X光超级工具模组图标">
+            <a href="https://bananastudiomc.github.io/xraysupertoolsdownload.html" target="_blank">下载 V1.8.9</a>
+        </div>
+        <div class="download-btn">
+            <img src="xraysupertoolsmodicon.png" alt="X光超级工具模组图标">
+            <a href="https://release-assets.githubusercontent.com/github-production-release-asset/1123723081/56ad58d4-a0ef-4ee1-a121-7bbb44dcf228?sp=r&sv=2018-11-09&sr=b&spr=https&se=2025-12-29T14%3A18%3A16Z&rscd=attachment%3B+filename%3DV1.8.9.NO.Java.Minecraft.Pack.mcaddon&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2025-12-29T13%3A18%3A08Z&ske=2025-12-29T14%3A18%3A16Z&sks=b&skv=2018-11-09&sig=7aIA1PAwMCDwkX2n6j3tWy8SKF%2FCAwOq0f3h3TK90eg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc2NzAxNDU4OCwibmJmIjoxNzY3MDE0Mjg4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Fp5e71AtrdK4NftiwnNbkaGwHY33ZwIV5UsjvmWdtt0&response-content-disposition=attachment%3B%20filename%3DV1.8.9.NO.Java.Minecraft.Pack.mcaddon&response-content-type=application%2Foctet-stream" target="_blank">下载 V1.9.1</a>
+        </div>
+    </div>
+    <div class="footer">
+        © 2026-2027 香蕉工作室所有
     </div>
 </body>
 </html>
+
