@@ -43,6 +43,15 @@
     <script>
         const video = document.getElementById('logo-video');
         
+        // 尝试自动播放（某些浏览器可能需要用户交互）
+        video.play().catch(function(error) {
+            console.log("自动播放被阻止:", error);
+            // 如果自动播放失败，点击页面后播放
+            document.body.addEventListener('click', function() {
+                video.play();
+            }, { once: true });
+        });
+        
         video.addEventListener('ended', function() {
             window.location.href = 'https://bananastudiomc.github.io/bananastudiohome.html';
         });
