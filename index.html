@@ -11,7 +11,7 @@
             box-sizing: border-box;
         }
         body {
-            background: #000;
+            background: #FFFF00;
             overflow: hidden;
         }
         #video-container {
@@ -23,7 +23,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #000;
+            background: #FFFF00;
             z-index: 9999;
         }
         video {
@@ -43,10 +43,8 @@
     <script>
         const video = document.getElementById('logo-video');
         
-        // 尝试自动播放（某些浏览器可能需要用户交互）
         video.play().catch(function(error) {
             console.log("自动播放被阻止:", error);
-            // 如果自动播放失败，点击页面后播放
             document.body.addEventListener('click', function() {
                 video.play();
             }, { once: true });
@@ -64,3 +62,4 @@
     </script>
 </body>
 </html>
+
