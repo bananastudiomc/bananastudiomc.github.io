@@ -35,25 +35,87 @@
 </head>
 <body>
     <div id="video-container">
-        <video id="logo-video" autoplay muted playsinline>
+        <video id="logo-video" autoplay muted playsinline preload="auto">
             <source src="bananastudioindex.mp4" type="video/mp4">
         </video>
     </div>
 
     <script>
         const video = document.getElementById('logo-video');
-        
+        let startTime = Date.now();
+        let speedSet = false;
+
+        function checkBufferSpeed() {
+            if (speedSet) return;
+            if (video.buffered.length === 0) return;
+            
+            const buffered = video.buffered.end(0);
+            const duration = video.duration;
+            if (duration === 0) return;
+            
+            const elapsed = (Date.now() - startTime) / 1000;
+            if (elapsed < 1) return;
+            
+            const speed = buffered / elapsed;
+            
+            let rate = 1.0;
+            if (speed < 0.5) {
+                rate = 1.0;
+            } else if (speed < 1.0) {
+                rate = 1.2;
+            } else if (speed < 2.0) {
+                rate = 1.5;
+            } else if (speed < 4.0) {
+                rate = 2.0;
+            } else if (speed < 8.0) {
+                rate = 2.5;
+            } else {
+                rate = 3.0;
+            }
+            
+            video.playbackRate = rate;
+            speedSet = true;
+        }
+
+        video.addEventListener('progress', function() {
+            checkBufferSpeed();
+        });
+
+        video.addEventListener('loadeddata', function() {
+            if (!speedSet) {
+                const elapsed = (Date.now() - startTime) / 1000;
+                if (elapsed > 0.5) {
+                    const speed = video.duration / elapsed;
+                    let rate = 1.0;
+                    if (speed < 0.5) rate = 1.0;
+                    else if (speed < 1.0) rate = 1.2;
+                    else if (speed < 2.0) rate = 1.5;
+                    else if (speed < 4.0) rate = 2.0;
+                    else if (speed < 8.0) rate = 2.5;
+                    else rate = 3.0;
+                    video.playbackRate = rate;
+                    speedSet = true;
+                }
+            }
+        });
+
+        setTimeout(function() {
+            if (!speedSet) {
+                video.playbackRate = 1.0;
+                speedSet = true;
+            }
+        }, 5000);
+
         video.play().catch(function(error) {
-            console.log("自动播放被阻止:", error);
             document.body.addEventListener('click', function() {
                 video.play();
             }, { once: true });
         });
-        
+
         video.addEventListener('ended', function() {
             window.location.href = 'https://bananastudiomc.github.io/bananastudiohome.html';
         });
-        
+
         video.addEventListener('error', function() {
             setTimeout(function() {
                 window.location.href = 'https://bananastudiomc.github.io/bananastudiohome.html';
